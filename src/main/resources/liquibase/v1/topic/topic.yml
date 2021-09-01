@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - changeSet:
+      id: topic
+      author: thiago.rocha
+      runInTransaction: false
+      runOnChange: true
+      changes:
+        - sqlFile:
+            encoding: utf8
+            path: create-table-topic.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            stripComments: true
