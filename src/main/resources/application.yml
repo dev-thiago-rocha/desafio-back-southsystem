@@ -1,0 +1,21 @@
+server:
+  port: 8030
+  servlet:
+    context-path: /desafio-south
+
+spring:
+  application:
+    name: desafio-back-southsystem
+  banner:
+    location: classpath:/banner/bannername.txt
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${SS_DB_HOST:localhost}:${SS_DB_PORT:3306}/${SS_DB_BASE:ss_db_southbase}?useTimezone=true&serverTimezone=America/Belem&createDatabaseIfNotExist=true
+    username: ${SS_DB_USER:root}
+    password: ${SS_DB_PASSWORD:toor}
+  liquibase:
+    default-schema: ss_db_southbase
+    change-log: classpath:/liquibase/liquibase-changelog.yml
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+    enabled: true
