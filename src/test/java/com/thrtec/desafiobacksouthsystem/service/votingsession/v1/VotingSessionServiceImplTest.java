@@ -14,6 +14,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
@@ -69,6 +70,24 @@ public class VotingSessionServiceImplTest {
         verify(votingSessionValidator).validateCreateVotingSession(votingSession);
         verify(votingSessionRepository).save(votingSession);
         verify(votingSessionMapper).toCreateVotingSessionResponseDto(votingSession);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void finishVotingSessions_withSuccess() {
+        // Arrange
+        final var expected = Arrays.asList(
+                new VotingSession(),
+                new VotingSession()
+        );
+
+        when(votingSessionRepository.findAllByStatus(VotingSessionStatusType.ACTIVE)).thenReturn(expected);
+
+        // Act
+        final var actual = votingSessionService.findActiveVotingSessions();
+
+        // Assert
+        verify(votingSessionRepository).findAllByStatus(VotingSessionStatusType.ACTIVE);
         assertEquals(expected, actual);
     }
 
