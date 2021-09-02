@@ -2,7 +2,6 @@ package com.thrtec.desafiobacksouthsystem.service.votingsession.v1;
 
 import com.thrtec.desafiobacksouthsystem.dto.votingsession.v1.CreateVotingSessionRequestDto;
 import com.thrtec.desafiobacksouthsystem.dto.votingsession.v1.CreateVotingSessionResponseDto;
-import com.thrtec.desafiobacksouthsystem.enumeration.VotingSessionStatusType;
 import com.thrtec.desafiobacksouthsystem.mapper.votingsession.v1.VotingSessionMapper;
 import com.thrtec.desafiobacksouthsystem.repository.VotingSessionRepository;
 import com.thrtec.desafiobacksouthsystem.validator.votingsession.v1.VotingSessionValidator;
