@@ -1,0 +1,38 @@
+version: "3"
+services:
+  desafio-api:
+    build: .
+    container_name: desafio-back-south-api
+    environment:
+      - SS_DB_HOST=mysql-server
+      - SS_DB_PORT=3306
+      - SS_DB_BASE=ss_db_southbase
+      - SS_DB_USER=root
+      - SS_DB_PASSWORD=toor
+    restart: always
+    ports:
+      - "8030:8030"
+    depends_on:
+      - mysql-server
+    links:
+      - mysql-server
+    networks:
+      - spring-mysql-net
+  mysql-server:
+    image: mysql:8
+    restart: always
+    container_name: desafio-southsystem-db
+    environment:
+      - MYSQL_ROOT_PASSWORD=toor
+      - MYSQL_DATABASE=ss_db_southbase
+    ports:
+      - "3306:3306"
+    volumes:
+      - ss-datavolume:/var/lib/mysql
+    networks:
+      - spring-mysql-net
+volumes:
+  ss-datavolume:
+networks:
+  spring-mysql-net:
+    driver: bridge
