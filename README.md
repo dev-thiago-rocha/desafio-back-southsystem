@@ -37,3 +37,4 @@
 
 3. Para ligar a aplicação: `docker-compose up`
 4. Para desligar a aplicação: `docker-compose down`
+5. Problemas para subir a aplicação ? Não se preocupe, ela está online em : https://desafioback.thrtec.com/desafio-south/swagger-ui.html
