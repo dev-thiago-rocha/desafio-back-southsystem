@@ -10,6 +10,8 @@ public interface VotingSessionRepository extends JpaRepository<VotingSession, Lo
 
     boolean existsByTopicIdAndStatus(Long topicId, VotingSessionStatusType status);
 
+    boolean existsByIdAndStatus(Long id,VotingSessionStatusType status);
+
     List<VotingSession> findAllByStatus(VotingSessionStatusType status);
 
 }

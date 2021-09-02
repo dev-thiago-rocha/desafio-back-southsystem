@@ -2,9 +2,11 @@ package com.thrtec.desafiobacksouthsystem.validator.vote.v1;
 
 import com.thrtec.desafiobacksouthsystem.domain.Vote;
 import com.thrtec.desafiobacksouthsystem.dto.userinfo.v1.ValidateCpfResponseDto;
+import com.thrtec.desafiobacksouthsystem.enumeration.VotingSessionStatusType;
 import com.thrtec.desafiobacksouthsystem.exception.ValidationException;
 import com.thrtec.desafiobacksouthsystem.feign.UserInfoClient;
 import com.thrtec.desafiobacksouthsystem.repository.VoteRepository;
+import com.thrtec.desafiobacksouthsystem.repository.VotingSessionRepository;
 import feign.FeignException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -18,11 +20,16 @@ public class VoteValidator {
 
     private final UserInfoClient userInfoClient;
     private final VoteRepository voteRepository;
+    private final VotingSessionRepository votingSessionRepository;
 
     public void validateCreateVote(final Vote vote) {
 
         if (validateCpfAlreadyVoted(vote)) {
             throw new ValidationException("Cpf already been used in this voting session");
+        }
+
+        if (!validateVotingSessionIsValid(vote.getVotingSessionId())) {
+            throw new ValidationException("Invalid voting session");
         }
 
         if (!validateCpfCanVote(vote.getCpf())) {
@@ -49,5 +56,9 @@ public class VoteValidator {
         }
 
         return ABLE_TO_VOTE.equals(validationResponse.getStatus());
+    }
+
+    private boolean validateVotingSessionIsValid(Long votingSessionId) {
+        return votingSessionRepository.existsByIdAndStatus(votingSessionId, VotingSessionStatusType.ACTIVE);
     }
 }
