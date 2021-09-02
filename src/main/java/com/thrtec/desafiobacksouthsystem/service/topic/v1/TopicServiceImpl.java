@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 import static com.thrtec.desafiobacksouthsystem.util.PaginationUtil.toPageable;
@@ -23,6 +24,7 @@ public class TopicServiceImpl implements TopicService {
     private final TopicRepository topicRepository;
 
     @Override
+    @Transactional
     public CreateTopicResponseDto createTopic(final CreateTopicRequestDto requestDto) {
         var topic = topicMapper.toTopic(requestDto);
         topic = topicRepository.save(topic);

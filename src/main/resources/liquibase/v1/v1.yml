@@ -2,3 +2,6 @@ databaseChangeLog:
   - include:
       file: topic/topic.yml
       relativeToChangelogFile: true
+  - include:
+      file: votingsession/votingsession.yml
+      relativeToChangelogFile: true
