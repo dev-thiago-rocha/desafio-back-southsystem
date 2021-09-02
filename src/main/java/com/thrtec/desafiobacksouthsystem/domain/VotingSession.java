@@ -1,5 +1,6 @@
 package com.thrtec.desafiobacksouthsystem.domain;
 
+import com.thrtec.desafiobacksouthsystem.enumeration.VotingSessionResultType;
 import com.thrtec.desafiobacksouthsystem.enumeration.VotingSessionStatusType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -34,5 +35,8 @@ public class VotingSession {
     @NotNull
     @Enumerated(EnumType.STRING)
     private VotingSessionStatusType status;
+
+    @Enumerated(EnumType.STRING)
+    private VotingSessionResultType result;
 
 }
