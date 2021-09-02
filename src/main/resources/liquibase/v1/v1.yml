@@ -5,3 +5,6 @@ databaseChangeLog:
   - include:
       file: votingsession/votingsession.yml
       relativeToChangelogFile: true
+  - include:
+      file: vote/vote.yml
+      relativeToChangelogFile: true

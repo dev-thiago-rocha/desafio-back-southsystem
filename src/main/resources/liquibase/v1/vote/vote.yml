@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - changeSet:
+      id: vote
+      author: thiago.rocha
+      runInTransaction: false
+      runOnChange: true
+      changes:
+        - sqlFile:
+            encoding: utf8
+            path: create-table-vote.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            stripComments: true
