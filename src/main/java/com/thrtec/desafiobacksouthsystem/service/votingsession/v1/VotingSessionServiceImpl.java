@@ -32,4 +32,6 @@ public class VotingSessionServiceImpl implements VotingSessionService {
         return votingSessionMapper.toCreateVotingSessionResponseDto(votingSession);
     }
 
+
+
 }
