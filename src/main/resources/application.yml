@@ -19,3 +19,8 @@ spring:
     user: ${spring.datasource.username}
     password: ${spring.datasource.password}
     enabled: true
+
+desafio:
+  feign:
+    user-info:
+      url: https://user-info.herokuapp.com/users

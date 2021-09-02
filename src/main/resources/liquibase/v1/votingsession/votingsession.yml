@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: votingsession
+      author: thiago.rocha
+      runInTransaction: false
+      runOnChange: true
+      changes:
+        - sqlFile:
+            encoding: utf8
+            path: create-table-votingsession.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            stripComments: true
+  - changeSet:
+        id: votingsession-add-result
+        author: thiago.rocha
+        runInTransaction: false
+        runOnChange: true
+        changes:
+            - sqlFile:
+                  encoding: utf8
+                  path: alter-table-votingsession-add-result-column.sql
+                  relativeToChangelogFile: true
+                  splitStatements: true
+                  stripComments: true
