@@ -9,6 +9,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableFeignClients
+@EnableScheduling
+@EnableCaching
 public class DesafioBackSouthsystemApplication {
 
     public static void main(String[] args) {
