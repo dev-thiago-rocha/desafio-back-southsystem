@@ -45,6 +45,7 @@ public class VoteServiceImplTest {
                 .votingSessionId(1L)
                 .build();
         final var vote = Vote.builder()
+                .id(1L)
                 .cpf(removeMaskFromCpf(requestDto.getCpf()))
                 .votingSessionId(requestDto.getVotingSessionId())
                 .decision(requestDto.getDecision())
