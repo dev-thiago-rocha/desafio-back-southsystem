@@ -36,6 +36,6 @@
 
 3. Para ligar a aplicação: `docker-compose up`
 4. Para desligar a aplicação: `docker-compose down`
-5. Problemas para subir a aplicação ? Não se preocupe, ela está online em : https://desafioback.thrtec.com/desafio-south/swagger-ui.html
+5. Problemas para subir a aplicação ? Não se preocupe, ela está online em : https://desafioback.thrtec.com/desafio-south/swagger-ui.html (desligado para não ocupar recursos do meu servidor, caso seja necessário, entre em contato :D)
 6. Subir um container MySql local:
 > docker container run --name desafio-southsystem-db -p 3306:3306 -e MYSQL_ROOT_PASSWORD=toor -e MYSQL_DATABASE=ss_db_southbase -d mysql:8
